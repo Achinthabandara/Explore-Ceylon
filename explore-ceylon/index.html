@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Ceylon — Discover the Peaks of Paradise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <div class="nav-logo-icon">🏔️</div>
+          Explore <span>Ceylon</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#mountains">Mountains</a></li>
+          <li><a href="#map-section">Map</a></li>
+          <li><a href="#gear">Gear</a></li>
+          <li><a href="#camping">Camping</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-theme" id="themeToggle" title="Toggle theme">🌙</button>
+          <a href="#mountains" class="btn-primary">Explore Hikes</a>
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="menu-close" id="menuClose">✕</button>
+    <a href="#hero"        onclick="closeMobileMenu()">🏠 Home</a>
+    <a href="#mountains"   onclick="closeMobileMenu()">⛰️ Mountains</a>
+    <a href="#map-section" onclick="closeMobileMenu()">🗺️ Map</a>
+    <a href="#gear"        onclick="closeMobileMenu()">🎒 Gear</a>
+    <a href="#camping"     onclick="closeMobileMenu()">⛺ Camping</a>
+    <a href="#videos"      onclick="closeMobileMenu()">🎬 Videos</a>
+    <a href="#footer"      onclick="closeMobileMenu()">📬 Contact</a>
+  </div>
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1565197119566-01a26c6ca47c?w=1800&q=80"
+        alt="Sri Lanka misty mountain peaks"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Right side floating mini-cards -->
+    <div class="hero-image-stack">
+      <div class="stack-card" onclick="openModal(0)">
+        <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=300&q=75" alt="Adam's Peak"/>
+        <div class="stack-card-info">
+          <div class="stack-card-name">Adam's Peak</div>
+          <div class="stack-card-meta">2243m · 7 km</div>
+          <span class="stack-badge badge-hard">Hard</span>
+        </div>
+      </div>
+      <div class="stack-card" onclick="openModal(2)">
+        <img src="https://images.unsplash.com/photo-1561553543-e4c7b608b98d?w=300&q=75" alt="Horton Plains"/>
+        <div class="stack-card-info">
+          <div class="stack-card-name">Horton Plains</div>
+          <div class="stack-card-meta">2100m · 9 km</div>
+          <span class="stack-badge badge-easy">Easy</span>
+        </div>
+      </div>
+      <div class="stack-card" onclick="openModal(3)">
+        <img src="https://images.unsplash.com/photo-1602147743086-9cc49a7e7086?w=300&q=75" alt="Ella Rock"/>
+        <div class="stack-card-info">
+          <div class="stack-card-name">Ella Rock</div>
+          <div class="stack-card-meta">1041m · 8 km</div>
+          <span class="stack-badge badge-moderate">Moderate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          Sri Lanka's Premier Hiking Guide
+        </div>
+        <h1 class="hero-title">
+          Discover the<br/>
+          <em>Peaks of Paradise</em>
+        </h1>
+        <p class="hero-desc">
+          Venture into Sri Lanka's misty highlands — from the sacred summit of
+          Adam's Peak to the endless vistas of Horton Plains. Every trail tells a story.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="hero-search">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="heroSearch"
+            placeholder="Search hikes, mountains, regions…"
+            autocomplete="off"
+          />
+          <div class="search-divider"></div>
+          <select class="search-filter" id="heroFilter" onchange="filterHikes()">
+            <option value="">All Difficulties</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+          </select>
+          <button class="search-btn" onclick="doSearch()">Search</button>
+        </div>
+
+        <!-- Hero inline stats -->
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" id="stat1">0</div>
+            <div class="stat-label">Mountains</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num" id="stat2">0</div>
+            <div class="stat-label">KM of Trails</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num" id="stat3">0</div>
+            <div class="stat-label">Max Elevation (m)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-wheel"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       STATS STRIP
+  ════════════════════════════════════ -->
+  <div id="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">🏔️</div>
+          <div class="stat-count" data-target="8">0</div>
+          <div class="stat-desc">Iconic Peaks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🥾</div>
+          <div class="stat-count" data-target="72">0</div>
+          <div class="stat-desc">Total KM of Trails</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌡️</div>
+          <div class="stat-count" data-target="2524">0</div>
+          <div class="stat-desc">Highest Peak (m)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌿</div>
+          <div class="stat-count" data-target="3">0</div>
+          <div class="stat-desc">Provinces Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       MOUNTAINS / HIKE LISTINGS
+  ════════════════════════════════════ -->
+  <section id="mountains">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left">
+          <p class="section-label">The Trails</p>
+          <h2 class="section-title">8 Legendary Sri Lanka Hikes</h2>
+        </div>
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-pill active" data-filter="">All Hikes</button>
+          <button class="filter-pill" data-filter="Easy">🟢 Easy</button>
+          <button class="filter-pill" data-filter="Moderate">🟡 Moderate</button>
+          <button class="filter-pill" data-filter="Hard">🔴 Hard</button>
+        </div>
+      </div>
+      <!-- Cards injected by JS -->
+      <div class="hikes-grid" id="hikesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       HIKE DETAIL MODAL
+  ════════════════════════════════════ -->
+  <div id="modal-overlay">
+    <div class="modal-box" id="modalBox">
+      <div class="modal-hero">
+        <img id="modalHeroImg" src="" alt=""/>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-hero-overlay">
+          <div class="modal-title-wrap">
+            <h2 id="modalTitle"></h2>
+            <div id="modalBadge"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="overview">Overview</button>
+        <button class="modal-tab" data-tab="map">Map</button>
+        <button class="modal-tab" data-tab="video">Video</button>
+      </div>
+
+      <div class="modal-content">
+        <!-- Overview Tab -->
+        <div class="tab-panel active" id="tab-overview">
+          <div class="modal-info-grid" id="modalInfoGrid"></div>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="difficulty-bar-wrap">
+            <div class="difficulty-label">
+              <span>Trail Difficulty</span>
+              <span id="modalDiffLabel"></span>
+            </div>
+            <div class="difficulty-bar-track">
+              <div class="difficulty-bar-fill" id="modalDiffBar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="section-label" style="margin-top:20px">Best Seasons</div>
+          <div class="season-tags" id="modalSeasons"></div>
+        </div>
+        <!-- Map Tab -->
+        <div class="tab-panel" id="tab-map">
+          <div class="map-embed">
+            <iframe id="modalMap" src="" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- Video Tab -->
+        <div class="tab-panel" id="tab-video">
+          <div class="video-embed">
+            <iframe id="modalVideo" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       INTERACTIVE MAP
+  ════════════════════════════════════ -->
+  <section id="map-section">
+    <div class="container">
+      <p class="section-label">Navigate</p>
+      <h2 class="section-title">All Trails on the Map</h2>
+      <div class="map-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1265523.0!2d80.7718!3d7.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       GEAR SECTION
+  ════════════════════════════════════ -->
+  <section id="gear">
+    <div class="container">
+      <p class="section-label">Be Prepared</p>
+      <h2 class="section-title">Hiking Gear Checklist</h2>
+      <p style="color:rgba(240,236,228,0.5);margin-top:12px;font-size:0.95rem;">
+        Check off items as you pack — your progress is saved automatically.
+      </p>
+      <!-- Categories injected by JS -->
+      <div class="gear-categories" id="gearGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       CAMPING SECTION
+  ════════════════════════════════════ -->
+  <section id="camping">
+    <div class="container">
+      <p class="section-label">Spend the Night</p>
+      <h2 class="section-title">Camping Near the Peaks</h2>
+      <!-- Cards injected by JS -->
+      <div class="camping-grid" id="campingGrid"></div>
+
+      <div class="lnt-tips">
+        <div class="lnt-title">🌿 Leave No Trace Principles</div>
+        <div class="lnt-grid">
+          <div class="lnt-item">
+            <div class="lnt-icon">🗺️</div>
+            <div class="lnt-text"><h4>Plan Ahead</h4><p>Know the rules & regulations before you go.</p></div>
+          </div>
+          <div class="lnt-item">
+            <div class="lnt-icon">🛤️</div>
+            <div class="lnt-text"><h4>Stay on Trail</h4><p>Protect fragile vegetation by keeping to marked paths.</p></div>
+          </div>
+          <div class="lnt-item">
+            <div class="lnt-icon">🗑️</div>
+            <div class="lnt-text"><h4>Pack It Out</h4><p>Carry all waste back — leave nothing behind.</p></div>
+          </div>
+          <div class="lnt-item">
+            <div class="lnt-icon">🔥</div>
+            <div class="lnt-text"><h4>Minimize Fire</h4><p>Use a camp stove; open fires damage soil and vegetation.</p></div>
+          </div>
+          <div class="lnt-item">
+            <div class="lnt-icon">🐘</div>
+            <div class="lnt-text"><h4>Respect Wildlife</h4><p>Observe from distance; never feed wild animals.</p></div>
+          </div>
+          <div class="lnt-item">
+            <div class="lnt-icon">🤝</div>
+            <div class="lnt-text"><h4>Be Considerate</h4><p>Yield to other hikers; keep noise levels low.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       VIDEOS SECTION
+  ════════════════════════════════════ -->
+  <section id="videos">
+    <div class="container">
+      <p class="section-label">Watch & Explore</p>
+      <h2 class="section-title">Trail Videos from the Field</h2>
+      <div class="videos-scroll-wrap">
+        <!-- Cards injected by JS -->
+        <div class="videos-scroll" id="videosScroll"></div>
+        <div class="scroll-arrows">
+          <button class="scroll-arrow" onclick="scrollVideos(-1)">←</button>
+          <button class="scroll-arrow" onclick="scrollVideos(1)">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-icon">🏔️</div>
+            Explore <span>Ceylon</span>
+          </div>
+          <p>Your ultimate guide to hiking Sri Lanka's most breathtaking mountain trails. From misty highlands to ancient peaks.</p>
+          <div class="footer-social">
+            <a class="social-btn" href="#" title="Instagram">📸</a>
+            <a class="social-btn" href="#" title="YouTube">▶️</a>
+            <a class="social-btn" href="#" title="Facebook">📘</a>
+            <a class="social-btn" href="#" title="Twitter">🐦</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="#mountains">All Mountains</a>
+            <a href="#map-section">Trail Map</a>
+            <a href="#gear">Gear Guide</a>
+            <a href="#camping">Camping Spots</a>
+            <a href="#videos">Video Guides</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Information</h4>
+          <div class="footer-links">
+            <a href="#">Safety Tips</a>
+            <a href="#">Permits & Rules</a>
+            <a href="#">Best Seasons</a>
+            <a href="#">Wildlife Guide</a>
+            <a href="#">About Us</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency</h4>
+          <div class="emergency-box">
+            <h5>🚨 Emergency Contacts</h5>
+            <p>
+              <strong>Sri Lanka Wildlife Dept.</strong><br/>
+              📞 +94 11 288 6592<br/><br/>
+              <strong>Forest Dept.</strong><br/>
+              📞 +94 11 286 6626<br/><br/>
+              <strong>Police Emergency</strong><br/>
+              📞 119<br/><br/>
+              <strong>Ambulance</strong><br/>
+              📞 1990
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Explore Ceylon. Crafted with 💚 for Sri Lanka's mountains.</span>
+        <span>All hike data for reference only. Always hike with a guide.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top">↑</button>
+
+  <!-- ════════════════════════════════════
+       JAVASCRIPT — loaded last for performance
+  ════════════════════════════════════ -->
+  <script src="main.js"></script>
+
+</body>
+</html>

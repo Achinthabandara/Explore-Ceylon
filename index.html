@@ -8,21 +8,71 @@
 
 </head>
 <body>
+    <!--NAVBAR -->
     <header>
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#destinations">Destinations</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Home</a>
-            <a href="#shop">Shop</a>
+        <nav id="navbar">
+            <div class="container">
+            
+                <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li> <a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#shop">Shop</a></li>
+               </ul>
+            </div>
 
         </nav>
 
-        <h1>
-            Ready To Explore <br>
-            <span class="start">START</span>
-        </h1>
+        <!--MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="menu-close" id="mobileMenu">✕</button>
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#home" onclick="closeMobileMenu()">Destinations</a>
+            <a href="#home" onclick="closeMobileMenu()">About</a>
+            <a href="#home" onclick="closeMobileMenu()">Gallery</a>
+            <a href="#home" onclick="closeMobileMenu()">Shop</a>
+            
+
+        </div>
     </header>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+              <span class="dot"></span>
+          Sri Lanka's Premier Hiking Guide
+            </div>  
+        <h1 class="hero-title">
+            Discover the <br/>
+            <em>Peaks of Paradise</em>
+        </h1>
+        <p class="hero-desc">
+            Venture into Sri Lanka's misty highlands — from the sacred summit of
+          Adam's Peak to the endless vistas of Horton Plains. Every trail tells a story.
+        </p>
+           
+
+        <!--SEARCH BAR-->
+        <div class="hero-search">
+            <span class="search-icon">🔍</span>
+            <input  
+            type="text"
+            id="heroSearch"
+            placeholder="Search hikes, mountains, regions..."
+            autocomplete="off"/>
+
+            <div class="search-divider"></div>
+            <select class="search-filter" id="heroFilter" onchange="filterHikes()">
+                <option value="">All Difficulties</option>
+                <option value="">Easy</option>S
+                <option value="">Moderate</option>
+                <option value="">Hard</option>
+            </select>
+            <button class="search-btn" onclick="doSearch()">Search</button>
+        </div>
+        </div>
+    </div>
     
 </body>
 </html>
