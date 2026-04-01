@@ -36,6 +36,7 @@
 
         </div>
     </header>
+    <section id="hero">
 
     <div class="container">
         <div class="hero-content">
@@ -74,10 +75,79 @@
 
         <!--Hero inline stats-->
         <div class="hero-stats">
-            <div class="stat"></div>
+            <div class="stat">
+                <div class="stat-num" id="stat1">0</div>
+                <div class="stat-label">Mountains</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <div class="stat-num" id="stat2">0</div>
+                <div class="stat-label">KM of Trails</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <div class="stat-num" id="stat3">0</div>
+                <div class="stat-label">Max Elevation</div>
+            </div>
         </div>
         </div>
     </div>
+        <div class="hero-scroll">
+      <div class="scroll-wheel"></div>
+      <span>Scroll to explore</span>
+    </div>
+
+    </section>
+
+    <!--START TRIP-->
+
+    <div id="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">🏔️</div>
+          <div class="stat-count" data-target="8">0</div>
+          <div class="stat-desc">Iconic Peaks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🥾</div>
+          <div class="stat-count" data-target="72">0</div>
+          <div class="stat-desc">Total KM of Trails</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌡️</div>
+          <div class="stat-count" data-target="2524">0</div>
+          <div class="stat-desc">Highest Peak (m)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌿</div>
+          <div class="stat-count" data-target="3">0</div>
+          <div class="stat-desc">Provinces Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--MOUNTAINS-->
+
+  <section id="mountains">
+    <div class="container">
+        <div class="section-head">
+            <div class="section-head-left">
+                <p class="section-label">The Trails</p>
+                <h2 class="section-title">8 Legendary Sri Lanka Hikes</h2>
+            </div>
+            <div class="filter-bar" id="filterBar">
+            <button class="filter-pill active" data-filter="">All Hikes</button>
+            <button class="filter-pill" data-filter="Easy">🟢 Easy</button>
+            <button class="filter-pill" data-filter="Moderate">🟡 Moderate</button>
+            <button class="filter-pill" data-filter="Hard">🔴 Hard</button>    
+            </div>
+        </div>
+    </div>
+  </section>
+
+
     
 </body>
 </html>
