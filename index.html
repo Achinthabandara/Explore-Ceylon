@@ -144,8 +144,68 @@
             <button class="filter-pill" data-filter="Hard">🔴 Hard</button>    
             </div>
         </div>
+        <!-- Cards injected by JS -->
+      <div class="hikes-grid" id="hikesGrid"></div>
+    </div>
     </div>
   </section>
+
+  <!--HIKE DETAIL MODEL-->
+
+  <div id="modal-overlay">
+    <div class="modal-box" id="modalBox">
+        <div class="modal-hero">
+            <img id="modelHeroImg" src="" alt=""/>
+            <button class="model-close" onclick="closeModal()">✕</button>
+            <div class="modal-hero-overlay">
+                <div class="modal-title-wrap">
+                    <h2 id="modalTitle"></h2>
+                    <div id="modelBadge"></div>
+                </div>
+            </div>
+        </div>
+         <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="overview">Overview</button>
+        <button class="modal-tab" data-tab="map">Map</button>
+        <button class="modal-tab" data-tab="video">Video</button>
+        </div>
+
+        <div class="modal-content">
+        <!-- Overview Tab -->
+        <div class="tab-panel active" id="tab-overview">
+          <div class="modal-info-grid" id="modalInfoGrid"></div>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="difficulty-bar-wrap">
+            <div class="difficulty-label">
+              <span>Trail Difficulty</span>
+              <span id="modalDiffLabel"></span>
+            </div>
+            <div class="difficulty-bar-track">
+              <div class="difficulty-bar-fill" id="modalDiffBar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="section-label" style="margin-top:20px">Best Seasons</div>
+          <div class="season-tags" id="modalSeasons"></div>
+        </div>
+
+         <!-- Map Tab -->
+        <div class="tab-panel" id="tab-map">
+          <div class="map-embed">
+            <iframe id="modalMap" src="" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- Video Tab -->
+        <div class="tab-panel" id="tab-video">
+          <div class="video-embed">
+            <iframe id="modalVideo" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+
+
+
+    </div>
+  </div>
+  </div>
 
 
     
