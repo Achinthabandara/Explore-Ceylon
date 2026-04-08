@@ -120,3 +120,139 @@ ul {
   line-height: 1.15;
   color: var(--mist);
 }
+
+/*NAVBAR */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: var(--transition);
+}
+
+#navbar.scrolled {
+  padding: 14px 0;
+  background: rgba(17, 27, 17, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 40px rgba(0,0,0,0.4);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+}
+
+.nav-logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--mist);
+  white-space: nowrap;
+}
+
+.nav-logo-icon {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--gold), var(--earth-dark));
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.nav-logo span { 
+  color: var(--gold); 
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links {
+ padding: 8px 16px;
+ border-radius: 8px;
+ font-size: 0.9rem;
+ font-weight: 600;
+ color: rgba(240,236,228,0.78);
+ transition: var(--transition);
+ letter-spacing: 0.02em;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+ color: var(--mist);
+ background: var(--glass-light);
+}
+
+.nav-links a.active { 
+ color: var(--gold); 
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-theme { 
+width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--glass-light);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--mist);
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+}
+
+.btn-theme{
+  background: var(--gold);
+  color: var(--forest);
+}
+
+.btn-primary {
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--gold), var(--earth-dark));
+  color: var(--forest);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(212,168,67,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212,168,67,0.45);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 32px; height: 32px;
+  justify-content: center;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--mist);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+
+
+
+
+
