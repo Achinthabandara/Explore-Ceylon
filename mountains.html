@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Mountain Hikes — Explore Ceylon</title>
+  <meta name="description" content="Explore all 14 mountain hiking trails and high-altitude summits in Sri Lanka. Filter by difficulty, region, elevation, and best months." />
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- MAIN STYLESHEET -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="all-mountains-page">
+
+  <!-- ════════════════════════════════════
+       NAVIGATION HEADER
+  ════════════════════════════════════ -->
+  <header>
+    <nav id="navbar">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏔️</div>
+            Explore <span>Ceylon</span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="mountains.html" class="active">Mountains</a></li>
+            <li><a href="index.html#map-section">Map</a></li>
+            <li><a href="index.html#gear">Gear</a></li>
+            <li><a href="index.html#camping">Camping</a></li>
+            <li><a href="index.html#videos">Videos</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn-theme" id="themeToggle" title="Toggle theme">🌙</button>
+            <a href="index.html" class="btn-primary">← Back to Home</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="menu-close" id="menuClose" onclick="closeMobileMenu()">&times;</button>
+      <a href="index.html#hero" onclick="closeMobileMenu()">Home</a>
+      <a href="mountains.html" onclick="closeMobileMenu()">All Mountains</a>
+      <a href="index.html#map-section" onclick="closeMobileMenu()">Map</a>
+      <a href="index.html#gear" onclick="closeMobileMenu()">Gear</a>
+      <a href="index.html#camping" onclick="closeMobileMenu()">Camping</a>
+      <a href="index.html#videos" onclick="closeMobileMenu()">Videos</a>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════
+       PAGE HERO BANNER
+  ════════════════════════════════════ -->
+  <section class="page-banner" style="padding: 140px 0 60px; background: linear-gradient(180deg, var(--forest-mid) 0%, var(--forest) 100%); position: relative; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="container" style="text-align: center;">
+      <span class="section-tag">COMPLETE SRI LANKA TRAIL COLLECTION</span>
+      <h1 class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-top: 10px; margin-bottom: 16px;">All Mountain Hikes & Summits</h1>
+      <p style="max-width: 680px; margin: 0 auto 36px; color: rgba(240,236,228,0.75); font-size: 1.1rem; line-height: 1.6;">
+        From gentle tea estate walks to sheer rock monoliths. Filter through all 14 Sri Lankan mountain peaks, elevation maps, and difficulty levels.
+      </p>
+
+      <!-- SEARCH BAR -->
+      <div class="search-bar" style="max-width: 620px; margin: 0 auto;">
+        <input
+          type="text"
+          id="heroSearch"
+          placeholder="Search all mountains (e.g. Kirigalpoththa, Lakegala, Ella Rock)..."
+          autocomplete="off"
+        />
+        <select id="heroFilter" onchange="filterHikes()">
+          <option value="">All Regions</option>
+          <option value="Central">Central Province</option>
+          <option value="Uva">Uva Province</option>
+          <option value="Sabaragamuwa">Sabaragamuwa</option>
+        </select>
+        <button class="btn-search" onclick="doSearch()">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       ALL MOUNTAINS GRID SECTION
+  ════════════════════════════════════ -->
+  <section id="mountains" class="mountains-section" style="padding: 60px 0 100px;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 40px;">
+        <div>
+          <span class="section-tag">TRAIL CATALOG</span>
+          <h2 class="section-title">All 14 Mountain Trails</h2>
+        </div>
+        
+        <!-- FILTER BAR -->
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-pill active" data-filter="">All</button>
+          <button class="filter-pill" data-filter="Easy">Easy</button>
+          <button class="filter-pill" data-filter="Moderate">Moderate</button>
+          <button class="filter-pill" data-filter="Hard">Hard</button>
+          <button class="filter-pill" data-filter="Extreme">Extreme</button>
+        </div>
+      </div>
+
+      <!-- DYNAMIC HIKES GRID -->
+      <div class="hikes-grid" id="hikesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏔️</div>
+            Explore <span>Ceylon</span>
+          </a>
+          <p>Discover Sri Lanka's finest mountain hiking trails and wilderness guides.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html#hero">Home</a>
+            <a href="mountains.html">All Mountains</a>
+            <a href="index.html#map-section">Trail Map</a>
+            <a href="index.html#gear">Gear Guide</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Emergency Contacts</h4>
+          <div class="emergency-box">
+            <h5>🚨 Emergency Numbers</h5>
+            <p>
+              <strong>Sri Lanka Wildlife Dept:</strong> 📞 +94 11 288 6592<br/>
+              <strong>Forest Department:</strong> 📞 +94 11 286 6626<br/>
+              <strong>Police Emergency:</strong> 📞 119<br/>
+              <strong>Ambulance:</strong> 📞 1990
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Explore Ceylon. Crafted with 💚 for Sri Lanka's mountains.</span>
+        <span>All hike data for reference only. Always hike with a guide.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+
+      <div class="modal-hero">
+        <img id="modalHeroImg" src="" alt="Hike Image"/>
+        <div class="modal-hero-content">
+          <h2 id="modalTitle">Modal Title</h2>
+          <div id="modalBadge"></div>
+        </div>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="overview">Overview</button>
+        <button class="modal-tab" data-tab="map">Map View</button>
+        <button class="modal-tab" data-tab="video">Video Preview</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="tab-content active" id="tab-overview">
+          <div class="modal-info-grid" id="modalInfoGrid"></div>
+          <p id="modalDesc" style="color: var(--sand); line-height: 1.7; margin-bottom: 20px;"></p>
+          <div class="diff-bar-wrap" style="margin-bottom: 20px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--mist); margin-bottom:6px;">
+              <span>Trail Difficulty</span>
+              <span id="modalDiffLabel">Hard</span>
+            </div>
+            <div class="diff-bar-track" style="height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
+              <div id="modalDiffBar" style="height:100%; background:var(--gold); width:50%;"></div>
+            </div>
+          </div>
+          <div>
+            <strong style="color:var(--sand); display:block; margin-bottom:8px;">Best Months:</strong>
+            <div id="modalSeasons" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-map">
+          <iframe id="modalMap" src="" width="100%" height="320" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="tab-content" id="tab-video">
+          <iframe id="modalVideo" src="" width="100%" height="320" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
