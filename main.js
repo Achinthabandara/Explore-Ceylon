@@ -100,7 +100,7 @@ const hikes = [
     elevation: "2243m",
     rating: 4.9,
     lat: 6.8096, lng: 80.4994,
-    img: "https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=600&q=80",
+    img: "Images/Adam's Peak.jpg",
     desc: "Adam's Peak, known as Sri Pada, is Sri Lanka's most sacred pilgrimage hike. The 5,000+ steps climb through lush forest reserves to a summit adorned with a giant footprint shrine revered across religions. The 'shadow of the peak' phenomenon at sunrise is one of Asia's most magnificent sights.",
     seasons: ["Dec", "Jan", "Feb", "Mar", "Apr", "May"],
     trailhead: "Nallathanniya / Ratnapura",
